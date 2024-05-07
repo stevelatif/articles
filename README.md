@@ -1,14 +1,16 @@
 ---
 layout: post
 title: Aya Rust tutorial Part One
-subtitle: 
+description: aya-rs ebpf projects part one
 tags: [ebpf, rust, linux]
+license: apache
 ---
 
 &copy; steve latif 
 
+# Getting started with Aya and eBPF
 
-# Introduction
+## Introduction
 
 This is the first in a series of posts looking at eBPF and the
 Rust Aya crate. eBPF can run sandboxed programs inside the kernel.
