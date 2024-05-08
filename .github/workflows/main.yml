@@ -22,4 +22,4 @@ jobs:
           devto_api_key: ${{ secrets.DEVTO_API_KEY }}
           gh_token: ${{ secrets.GH_TOKEN }}
           medium_token: ${{ secrets.MEDIUM_TOKEN }}
-          medium_user_id: stevelatif
+          medium_user_id: 1b3697ae98193790f1f706c3c6196dbd53fd2d5b2f977abfe26f83dcb7c2d7db3
