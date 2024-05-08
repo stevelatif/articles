@@ -16,8 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: articles
-        uses: stevelatif/articles@v0.6.0
+      - name: blogpub
+        uses: protiumx/blogpub@v0.6.0
         with:
           devto_api_key: ${{ secrets.DEVTO_API_KEY }}
           gh_token: ${{ secrets.GH_TOKEN }}
