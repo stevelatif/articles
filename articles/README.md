@@ -114,7 +114,6 @@ was always a concern.
 
 ![img](./images/wan_emulator.png)
 
-
 ## Why Use eBPF and Aya?
 
 Both these projects had rapid turnarounds from conception to implementation,
