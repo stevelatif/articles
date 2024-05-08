@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'articles/*'
+      
+concurrency:
+  cancel-in-progress: true
+  group: publish-${{ github.head_ref || github.ref }}
+  
+jobs:
+  publish:
+    name: publish new article
+    runs-on: ubuntu-latest    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: blogpub
+        uses: stevelatif/blogpub@v0.6.0
+        with:
+          devto_api_key: ${{ secrets.DEVTO_API_KEY }}
+          gh_token: ${{ secrets.GH_TOKEN }}
+          medium_token: ${{ secrets.MEDIUM_TOKEN }}
+          medium_user_id: stevelatif
