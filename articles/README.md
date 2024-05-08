@@ -36,7 +36,6 @@ aya-rs, a rust interface to eBPF <https://aya-rs.dev/>
 Two past projects act as motivation for my work with 
 eBPF and aya.
 
-
 ## Scenario 1 SMB Traffic generation
 
 The network interface on 
