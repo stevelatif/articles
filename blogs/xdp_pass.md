@@ -1,12 +1,12 @@
 ---
-title: Aya Rust tutorial Part Three: XDP Pass
+title: Aya Rust tutorial Part Three XDP Pass
 date: "2024-05-09"
 toc: false
 tags: ebpf,rust,linux,networking
 ---
 &copy; steve latif 
 
-# Running the first Aya Program: XDP_pass
+# Aya Rust Tutorial Part 3: XDP_pass
 
 
 ## Assumptions
