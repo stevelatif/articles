@@ -3,7 +3,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'articles/*'
+      - '/*'
       
 concurrency:
   cancel-in-progress: true
