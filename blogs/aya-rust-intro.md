@@ -8,7 +8,6 @@ tags:
   - linux
   - aya
 slug: learning-ebpf-with-with-aya-rust
-license: apache
 ---
 
 &copy; steve latif 
