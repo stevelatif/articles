@@ -1,15 +1,13 @@
 ---
 title: Aya Rust tutorial Part One
-date: "2024-05-08"
+date: "2024-05-09"
 toc: false
 tags:
   - ebpf
   - rust
   - linux
   - aya
-slug: learning-ebpf-with-with-aya-rust
 ---
-
 &copy; steve latif 
 
 # Getting started with Aya and eBPF Part 1
