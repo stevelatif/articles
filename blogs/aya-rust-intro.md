@@ -1,8 +1,13 @@
 ---
-layout: post
 title: Aya Rust tutorial Part One
-description: aya-rs ebpf projects part one
-tags: [ebpf, rust, linux]
+date: "2024-05-08"
+toc: false
+tags:
+  - ebpf
+  - rust
+  - linux
+  - aya
+slug: learning-ebpf-with-with-aya-rust
 license: apache
 ---
 
