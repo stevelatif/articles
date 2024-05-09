@@ -2,11 +2,6 @@
 title: Aya Rust tutorial Part One
 date: "2024-05-09"
 toc: false
-tags:
-  - "ebpf"
-  - "rust"
-  - "linux"
-  - "networking"
 ---
 
 &copy; steve latif 
