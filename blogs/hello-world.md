@@ -14,9 +14,10 @@ verifier. Let's continue on by building another XDP
 program that will print a message every time it receives a packet
 on an interface. As in part 3 we will use the loopback interface.
 This will show how to print a message from the kernel. This is analogous
-to using 'bpf_printk' in the eBPF programs built in the C language
+to using 'bpf_printk' in the eBPF programs in C, see [here](https://github.com/libbpf/libbpf-bootstrap/blob/master/examples/c/kprobe.bpf.c_ul
+
 This will involve only a few more lines of code and 
-will follow the same build and deployment process in the previous chapter.
+will follow the same build and deployment process as in the previous chapter.
 
 
 # Generating the code
@@ -55,6 +56,9 @@ Using the template, generate the code in directory \`hello-world\`, select the x
     ❯ xdp
 
 
+The generated code will if unaltered behave as a hello world program. In the
+first part of this note we will modify the generated code, but come back 
+to it later 
 Modify the generated code in the file `hello-world/hello-world-ebpf/src/main.rs` 
 so that it looks like:
 
@@ -75,8 +79,8 @@ so that it looks like:
 This code uses the unsafe macro [bpf_printk](https://docs.rs/aya-ebpf/latest/aya_ebpf/macro.bpf_printk.html) 
 to print out a message every time a packet is received on the interface. 
 It returns \`XDP\_PASS\`
-bpf_printk is a useful tool for debugging but it is globally shared in the kernel 
-so other programs using it may disrupt its output
+bpf_printk is a useful tool for debugging. It is globally shared in the kernel 
+so other programs using it may disrupt its output.
 
 ## Compile the code
 
@@ -122,10 +126,10 @@ As before we have an xdp section, lets disassemble that:
        5:       exit
 
 Recall that the registers for eBPF:
-- R0: Stores a return value of a function, and exit value for an eBPF program
-- R1 - R5: Stores function arguments
-- R6 - R9: For general purpose usage
-- R10: Stores an address for stack frame
+- r0: Stores a return value of a function, and exit value for an eBPF program
+- r1 - R5: Stores function arguments
+- r6 - R9: For general purpose usage
+- r10: Stores an address for stack frame
 
 line 0 zeroes out the r1 register
 line 2 sets r2 to 19 - the length of the output string
@@ -158,8 +162,8 @@ You should see output being logged in the terminal where you ran the `trace_pipe
 	 ping-75348   [007] ..s21 47215.236704: bpf_trace_printk: packet  received!
 	 ping-75348   [007] ..s21 47215.236737: bpf_trace_printk: packet  received!
 
-Let's return to the previous step where we generated the code. If we leave the generated 
-code and don't change it:
+Let's return to the previous step where we generated the code. Run the 
+`cargo generate` leave the generated code and don't change it
 
 	#![no_std]
 	#![no_main]
@@ -185,7 +189,7 @@ code and don't change it:
 		unsafe { core::hint::unreachable_unchecked() }
 	}
 
-Leaving it as it is and building and running it:
+Build and running it:
 
 	cargo xtask build-ebpf
 	cargo build
@@ -408,4 +412,4 @@ Much of the rest of the byte code is setting up the stack to pass arguments.
 
 - Seen how to set up and deploy a basic hello world program 
 - print out a message when a packet is received
-
+- compared two different hello world programs
