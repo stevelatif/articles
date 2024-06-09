@@ -20,7 +20,8 @@ Install packages
 
     $ sudo apt install clang llvm libelf-dev libpcap-dev build-essential libc6-dev-i386  \
     graphviz  make gcc libssl-dev bc libelf-dev libcap-dev clang gcc-multilib  \
-    libncurses5-dev git pkg-config libmnl-dev bison flex linux-tools-$(uname -r)
+    libncurses5-dev git pkg-config libmnl-dev bison flex linux-tools-$(uname -r) \
+	llvm
 
 Verify that you have \`bpftool\` installed on your system
 
