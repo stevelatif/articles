@@ -8,13 +8,13 @@ tags: ebpf,rust,linux,networking
 
 # Aya Rust Tutorial Part 4: XDP Hello World
 
-Welcome to part 4. So far we have installed the prerequisits in part 2,
+Welcome to part 4. So far we have installed the prerequisite in part 2,
 built eBPF code that loads into the kernel and passes the
 verifier. Let's continue on by building another XDP
-program that will print a message everytime it receives a packet
+program that will print a message every time it receives a packet
 on an interface. As in part 3 we will use the loopback interface.
-This will show how to print a message from the kernel. This is ananlogous
-to using 'bpf_printk' in the BPF programs bult in the C language
+This will show how to print a message from the kernel. This is analogous
+to using 'bpf_printk' in the eBPF programs built in the C language
 This will involve only a few more lines of code and 
 will follow the same build and deployment process in the previous chapter.
 
@@ -73,7 +73,7 @@ so that it looks like:
 	}
 
 This code uses the unsafe macro [bpf_printk](https://docs.rs/aya-ebpf/latest/aya_ebpf/macro.bpf_printk.html) 
-to print out a message everytime a packet is received on the interface. 
+to print out a message every time a packet is received on the interface. 
 It returns \`XDP\_PASS\`
 bpf_printk is a useful tool for debugging but it is globally shared in the kernel 
 so other programs using it may disrupt its output
@@ -86,7 +86,7 @@ so other programs using it may disrupt its output
 
 ## Looking into the BPF-ELF object
 
-As we did in the previous section, lets look at the generated eBPF bytecode
+As we did in the previous section, lets look at the generated eBPF byte code
 
 	$ llvm-readelf --sections target/bpfel-unknown-none/debug/hello-world
 	There are 7 section headers, starting at offset 0x2e0:
@@ -209,7 +209,7 @@ there are significant differences in the code.
 It looks more like idiomatic rust with only one unsafe block in 
 the panic handler. 
 
-However looking at a dump of the bytecode:
+However looking at a dump of the byte code:
 
 	$ llvm-objdump --section=xdp  -S target/bpfel-unknown-none/debug/hello-world
 
@@ -402,7 +402,7 @@ two system calls on line 7 and line 174:
 `call 1` corresponds to `map_lookup_elem` in [bpf.h](https://elixir.bootlin.com/linux/v5.3.7/source/include/uapi/linux/bpf.h#L2719)
 `call 25` corresponding to ``perf_event_output` in [bpf.h](https://elixir.bootlin.com/linux/v5.3.7/source/include/uapi/linux/bpf.h#L2743)
 
-Much of the rest of the bytecode is setting up the stack to pass arguments. 
+Much of the rest of the byte code is setting up the stack to pass arguments. 
 
 # Summary
 
