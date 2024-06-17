@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Aya Rust tutorial Part Five, Using Maps
+title: Aya Rust tutorial Part Five
 subtitle: Part Five
 tags: [ebpf, rust, linux]
 ---
